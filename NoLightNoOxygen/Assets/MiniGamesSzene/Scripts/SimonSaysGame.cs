@@ -1,0 +1,107 @@
+using System.Collections;
+using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class SimonSaysGame : MonoBehaviour
+{
+    public GameObject simonSaysPanel;
+    public Button[] colorButtons;
+    public float delayBetweenFlashes = 0.6f;
+    public float buttonFalshDuration = 0.4f;
+
+    private List<int> sequence = new List<int>();
+    private bool isPlayerTurn = false;
+    private int playerIndex = 0;
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        HideMinigame();
+    }
+
+    void Update()
+    {
+        ShowMinigame();
+    }
+
+    public void ShowMinigame()
+    {
+        if (Input.GetMouseButton(0))
+        {
+            simonSaysPanel.SetActive(true);
+
+        }
+    }
+
+    public void HideMinigame()
+    {
+        simonSaysPanel.SetActive(false);
+    }
+
+    public void StartNewGame()
+    {
+        sequence.Clear();
+        AddToSequence();
+    }
+
+    void AddToSequence()
+    {
+        int next = Random.Range(0, colorButtons.Length);
+        sequence.Add(next);
+        StartCoroutine(PlaySequence());
+    }
+
+    IEnumerator PlaySequence()
+    {
+        isPlayerTurn = false;
+
+        for (int i = 0; i < sequence.Count; i++)
+        {
+            int index = sequence[i];
+            yield return StartCoroutine(FlashButton(colorButtons[index]));
+            yield return new WaitForSeconds(delayBetweenFlashes);
+        }
+
+        playerIndex = 0;
+        isPlayerTurn = true;
+    }
+
+    IEnumerator FlashButton(Button btn)
+    {
+        Color originalColor = btn.image.color;
+        btn.image.color = Color.white;
+        yield return new WaitForSeconds(buttonFalshDuration);
+        btn.image.color = originalColor;
+    }
+
+    public void OnColorButtonPressed(int index)
+    {
+        if (!isPlayerTurn) return;
+
+        if (index == sequence[playerIndex])
+        {
+            playerIndex++;
+
+            if (playerIndex >= sequence.Count)
+            {
+                //Player won Round
+                isPlayerTurn = false;
+                StartCoroutine(NextRoundAfterDelay());
+            }
+        }
+        else
+        {
+            //Player wrong click
+            Debug.Log("Wrong button! Restarting...");
+            StartNewGame();
+        }
+    }
+
+    IEnumerator NextRoundAfterDelay()
+    {
+        yield return new WaitForSeconds(1f);
+        AddToSequence();
+    }
+}
