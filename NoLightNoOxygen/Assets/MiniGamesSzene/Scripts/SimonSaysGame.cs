@@ -10,6 +10,8 @@ public class SimonSaysGame : MonoBehaviour
     public Button[] colorButtons;
     public float delayBetweenFlashes = 0.6f;
     public float buttonFalshDuration = 0.4f;
+    public int endRound = 5;
+    public GameObject taskCompletedObject;
 
     private List<int> sequence = new List<int>();
     private bool isPlayerTurn = false;
@@ -52,7 +54,7 @@ public class SimonSaysGame : MonoBehaviour
         sequence.Add(next);
         StartCoroutine(PlaySequence());
     }
-
+    //Starts PlaySequence and sets player turn to flase, after sets playerindex to 0 and allows player to interact again
     IEnumerator PlaySequence()
     {
         isPlayerTurn = false;
@@ -75,11 +77,12 @@ public class SimonSaysGame : MonoBehaviour
         yield return new WaitForSeconds(buttonFalshDuration);
         btn.image.color = originalColor;
     }
-
+    //Cheks if player can press Buttons
     public void OnColorButtonPressed(int index)
     {
         if (!isPlayerTurn) return;
 
+        //If Player completes sequence en round and start new round
         if (index == sequence[playerIndex])
         {
             playerIndex++;
@@ -93,15 +96,30 @@ public class SimonSaysGame : MonoBehaviour
         }
         else
         {
-            //Player wrong click
+            //On Wrong buttonpress 
             Debug.Log("Wrong button! Restarting...");
             StartNewGame();
         }
     }
 
+    //After Waiting starts new Round only if sequnce < endRound
     IEnumerator NextRoundAfterDelay()
     {
         yield return new WaitForSeconds(1f);
-        AddToSequence();
+
+        if (sequence.Count == endRound)
+        {
+            taskCompletedObject.SetActive(true);
+            Debug.Log("TaskCompledet YAY");
+        }
+        else
+        {
+            AddToSequence();
+        }
+    }
+
+    public void OnTaskCompletedButtonPresse()
+    {
+        HideMinigame();
     }
 }
