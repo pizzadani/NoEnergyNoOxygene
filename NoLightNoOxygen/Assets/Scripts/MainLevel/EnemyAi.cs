@@ -2,19 +2,19 @@ using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
 {
-    // Reference  the player 
+    // Reference to the player 
     public Transform player;
 
     // Movement speeds
-    public float moveSpeed = 3f;     
-    public float fleeSpeed = 5f;    
+    public float moveSpeed = 3f;
+    public float fleeSpeed = 5f;
 
     // How long the enemy flees
     public float fleeDuration = 3f;
 
     // Internal state tracking
-    private bool isFleeing = false;   
-    private float fleeTimer = 0f;     
+    private bool isFleeing = false;
+    private float fleeTimer = 0f;
 
     void Update()
     {
@@ -25,13 +25,14 @@ public class EnemyAI : MonoBehaviour
 
         if (isFleeing)
         {
-            //  Enemy is scared running 
-            direction = (transform.position - player.position).normalized;
+            // Enemy is scared and running away — flatten Y
+            Vector3 fleeTarget = new Vector3(player.position.x, transform.position.y, player.position.z);
+            direction = (transform.position - fleeTarget).normalized;
 
             // Decrease flee timer
             fleeTimer -= Time.deltaTime;
 
-            // stop fleeing
+            // Stop fleeing when timer is up
             if (fleeTimer <= 0f)
             {
                 isFleeing = false;
@@ -39,33 +40,26 @@ public class EnemyAI : MonoBehaviour
         }
         else
         {
-            //  Enemy is chasing 
-            direction = (player.position - transform.position).normalized;
+            // Enemy is chasing — flatten Y
+            Vector3 chaseTarget = new Vector3(player.position.x, transform.position.y, player.position.z);
+            direction = (chaseTarget - transform.position).normalized;
         }
 
         // Choose speed
-        float speed;
-        if (isFleeing)
-        {
-            speed = fleeSpeed;
-        }
-        else
-        {
-            speed = moveSpeed;
-        }
+        float speed = isFleeing ? fleeSpeed : moveSpeed;
 
-        // Move the enemy in the right direction
+        // Move the enemy on the horizontal plane (XZ only)
         transform.position += direction * speed * Time.deltaTime;
 
-        // Optional: rotate to face the player (can disable if using animations)
-        transform.LookAt(player.position);
+        // Optional: rotate to face the player (on XZ only)
+        Vector3 lookTarget = new Vector3(player.position.x, transform.position.y, player.position.z);
+        transform.LookAt(lookTarget);
     }
 
-    //  Called by the cone when  enemy is hit
+    // Called by the flashlight or cone when enemy is hit
     public void Scare()
     {
-        //Debug.Log("Enemy scared!");
-        isFleeing = true;              // Switch to fleeing mode
-        fleeTimer = fleeDuration;      // Reset flee timer
+        isFleeing = true;             // Switch to fleeing mode
+        fleeTimer = fleeDuration;     // Reset flee timer
     }
 }
