@@ -64,7 +64,7 @@ public class EnemyAI : MonoBehaviour
     //  Called by the cone when  enemy is hit
     public void Scare()
     {
-        Debug.Log("Enemy scared!");
+        //Debug.Log("Enemy scared!");
         isFleeing = true;              // Switch to fleeing mode
         fleeTimer = fleeDuration;      // Reset flee timer
     }
