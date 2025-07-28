@@ -84,6 +84,14 @@ public class Flashlight : MonoBehaviour
         }
     }
 
+    public void RestoreEnergy(int amount)
+    {
+        Energy = Mathf.Clamp(amount, 0, 100); // Reset to 100 but not more
+        spotlight.enabled = true;
+        isOn = true;
+        secondTimer = 0; // Reset timer
+        Debug.Log("Battery picked up! Energy restored to " + Energy);
+    }
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
