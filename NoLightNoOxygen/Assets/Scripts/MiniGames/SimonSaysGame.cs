@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class SimonSaysGame : MonoBehaviour
 {
     public GameObject simonSaysPanel;
+    public GameObject[] doors;
     public Button[] colorButtons;
     public float delayBetweenFlashes = 0.6f;
     public float buttonFalshDuration = 0.4f;
@@ -18,29 +20,6 @@ public class SimonSaysGame : MonoBehaviour
     private int playerIndex = 0;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        HideMinigame();
-    }
-
-    void Update()
-    {
-        ShowMinigame();
-    }
-
-    public void ShowMinigame()
-    {
-        if (Input.GetMouseButton(0))
-        {
-            simonSaysPanel.SetActive(true);
-
-        }
-    }
-
-    public void HideMinigame()
-    {
-        simonSaysPanel.SetActive(false);
-    }
 
     public void StartNewGame()
     {
@@ -110,16 +89,13 @@ public class SimonSaysGame : MonoBehaviour
         if (sequence.Count == endRound)
         {
             taskCompletedObject.SetActive(true);
-            Debug.Log("TaskCompledet YAY");
+            yield return new WaitForSeconds(1f);
+            SceneManager.LoadScene(1);
+
         }
         else
         {
             AddToSequence();
         }
-    }
-
-    public void OnTaskCompletedButtonPresse()
-    {
-        HideMinigame();
     }
 }

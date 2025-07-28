@@ -317,81 +317,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4516719631944949311, guid: aac5ae99a5956e24fa1ad59b4c8acc37, type: 3}
   m_PrefabInstance: {fileID: 382064628}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &502815035
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 502815036}
-  - component: {fileID: 502815038}
-  - component: {fileID: 502815037}
-  m_Layer: 5
-  m_Name: Panel
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &502815036
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 502815035}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 717525370}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &502815037
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 502815035}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.5660378, g: 0.5660378, b: 0.5660378, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &502815038
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 502815035}
-  m_CullTransparentMesh: 1
 --- !u!224 &559776512 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8803269177747492710, guid: f805685d70615444da3cb168d3a10fa4, type: 3}
@@ -420,7 +345,7 @@ GameObject:
   - component: {fileID: 603089654}
   - component: {fileID: 603089653}
   m_Layer: 5
-  m_Name: TestingPanel
+  m_Name: BackgroundPanal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -459,14 +384,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -599,7 +524,6 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 502815036}
   - {fileID: 603089652}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -924,6 +848,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4516719631944949311, guid: aac5ae99a5956e24fa1ad59b4c8acc37, type: 3}
   m_PrefabInstance: {fileID: 1553176776}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1553176778 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7331817699450441396, guid: aac5ae99a5956e24fa1ad59b4c8acc37, type: 3}
+  m_PrefabInstance: {fileID: 1553176776}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1613152624
 GameObject:
   m_ObjectHideFlags: 0
@@ -961,14 +896,17 @@ MonoBehaviour:
     speed: 200
     direction: 1
     isMoving: 1
+    image: {fileID: 1968248744}
   - barTransform: {fileID: 1553176777}
     speed: 210
     direction: 1
     isMoving: 1
+    image: {fileID: 1553176778}
   - barTransform: {fileID: 382064629}
     speed: 190
     direction: 1
     isMoving: 1
+    image: {fileID: 1901455291}
   targetZone: {fileID: 670173680}
   stopButton: {fileID: 559776515}
   resultText: {fileID: 657512071}
@@ -1079,6 +1017,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1901455291 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7331817699450441396, guid: aac5ae99a5956e24fa1ad59b4c8acc37, type: 3}
+  m_PrefabInstance: {fileID: 382064628}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1968248744 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7331817699450441396, guid: aac5ae99a5956e24fa1ad59b4c8acc37, type: 3}
+  m_PrefabInstance: {fileID: 8355807165062833532}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6214862407337166401
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1169,7 +1129,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8803269177747492710, guid: f805685d70615444da3cb168d3a10fa4, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -275
+      value: -248
       objectReference: {fileID: 0}
     - target: {fileID: 8803269177747492710, guid: f805685d70615444da3cb168d3a10fa4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

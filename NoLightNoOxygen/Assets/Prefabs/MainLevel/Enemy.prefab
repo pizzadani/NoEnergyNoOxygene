@@ -43,14 +43,14 @@ Light:
   m_Enabled: 1
   serializedVersion: 11
   m_Type: 0
-  m_Color: {r: 0, g: 1, b: 0.054832935, a: 1}
-  m_Intensity: 1000
+  m_Color: {r: 1, g: 0.286528, b: 0, a: 1}
+  m_Intensity: 11111
   m_Range: 5
   m_SpotAngle: 33.068275
   m_InnerSpotAngle: 33.068275
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -112,7 +112,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Version: 3
   m_UsePipelineSettings: 1
-  m_AdditionalLightsShadowResolutionTier: 2
+  m_AdditionalLightsShadowResolutionTier: 0
   m_LightLayerMask: 1
   m_RenderingLayers: 1
   m_CustomShadowLayers: 0
@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 6626126986972716834}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -245,8 +245,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  moveSpeed: 10
-  fleeSpeed: 20
+  moveSpeed: 20
+  fleeSpeed: 40
   fleeDuration: 0.5
 --- !u!54 &6626126986972716834
 Rigidbody:
