@@ -9,8 +9,17 @@ EditorBuildSettings:
     path: Assets/Scenes/MenuScene.unity
     guid: 639151590293fbb4a8a6318281f76236
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/Scenes/LevelOne.unity
+    guid: 614e3e5d55fce1e4bac5e60b99f11604
+  - enabled: 1
+    path: Assets/Scenes/MiniGames/SimonSaysScene.unity
+    guid: daf088f4f2cc6044985abea7b9a54d51
+  - enabled: 1
+    path: Assets/Scenes/MiniGames/TapToStopScene.unity
+    guid: 931cb54dcf804cd49a9172b77773e310
+  - enabled: 1
+    path: Assets/Scenes/MiniGames/WiringGame.unity
+    guid: 6e85e27a60660454b988829f0991fafe
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
