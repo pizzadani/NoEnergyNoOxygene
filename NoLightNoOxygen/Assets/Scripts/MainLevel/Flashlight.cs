@@ -8,13 +8,13 @@ public class Flashlight : MonoBehaviour
     public LayerMask enemyLayer;          // Only detect enemies on this layer
 
     [Header("Detection Settings")]
-    public float coneAngle = 30f;         // For enemy detection (not visual)
+    public float coneAngle = 30f;         // Half-angle used for detection logic
     public float detectionRange = 10f;
 
     [Header("Scaling Parameters")]
     public float maxIntensity = 1f;       // Light intensity at 100 Energy
     public float maxRange = 20f;          // Light range at 100 Energy
-    public float maxAngle = 60f;          // Light angle at 100 Energy
+    public float maxAngle = 60f;          // Light angle at 100 Energy (full angle)
 
     private bool isOn = true;
     private float secondTimer = 0f;
@@ -59,9 +59,9 @@ public class Flashlight : MonoBehaviour
         spotlight.range = maxRange * percent;
         spotlight.spotAngle = maxAngle * percent;
 
-        // Optional: update detection cone too
+        // Detection cone uses half the visual spotlight angle (to match Vector3.Angle logic)
         detectionRange = maxRange * percent;
-        coneAngle = maxAngle * percent;
+        coneAngle = (maxAngle * percent) / 2f;
     }
 
     void DetectEnemies()
@@ -92,9 +92,19 @@ public class Flashlight : MonoBehaviour
         secondTimer = 0; // Reset timer
         Debug.Log("Battery picked up! Energy restored to " + Energy);
     }
+
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, detectionRange);
+
+        // Draw flashlight cone lines in red for angle reference
+        Vector3 forward = transform.forward * detectionRange;
+        Quaternion leftRotation = Quaternion.Euler(0, -coneAngle, 0);
+        Quaternion rightRotation = Quaternion.Euler(0, coneAngle, 0);
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawRay(transform.position, leftRotation * forward);
+        Gizmos.DrawRay(transform.position, rightRotation * forward);
     }
 }
