@@ -2212,7 +2212,7 @@ PrefabInstance:
     - target: {fileID: 7698107042570589229, guid: d74358bb37e6d6f44906eb7c8ff60637, type: 3}
       propertyPath: target
       value: 
-      objectReference: {fileID: 914987946}
+      objectReference: {fileID: 1059851537}
     - target: {fileID: 7698107042570589229, guid: d74358bb37e6d6f44906eb7c8ff60637, type: 3}
       propertyPath: offset.y
       value: 30
@@ -2550,11 +2550,6 @@ Transform:
   - {fileID: 750879265}
   m_Father: {fileID: 607125986}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &914987946 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 759484652909757751, guid: 037aea04dd06102478f03d3c465a7e40, type: 3}
-  m_PrefabInstance: {fileID: 1494041790}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1007421927
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2807,6 +2802,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 3445087373623166314, guid: cd0ce379e05cdd546b4c9956c6d95e50, type: 3}
   m_PrefabInstance: {fileID: 1048847536}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1059851537 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4600114033445923814, guid: 037aea04dd06102478f03d3c465a7e40, type: 3}
+  m_PrefabInstance: {fileID: 1494041790}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1110303795
 PrefabInstance:
@@ -3778,9 +3778,25 @@ PrefabInstance:
       propertyPath: moveSpeed
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 4600114033445923814, guid: 037aea04dd06102478f03d3c465a7e40, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -7.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 4600114033445923814, guid: 037aea04dd06102478f03d3c465a7e40, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.6
+      objectReference: {fileID: 0}
     - target: {fileID: 4699657625976414885, guid: 037aea04dd06102478f03d3c465a7e40, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6885379759211296677, guid: 037aea04dd06102478f03d3c465a7e40, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 10820346}
+    - target: {fileID: 6885379759211296677, guid: 037aea04dd06102478f03d3c465a7e40, type: 3}
+      propertyPath: moveSpeed
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8242487621108276018, guid: 037aea04dd06102478f03d3c465a7e40, type: 3}
       propertyPath: m_Mass
