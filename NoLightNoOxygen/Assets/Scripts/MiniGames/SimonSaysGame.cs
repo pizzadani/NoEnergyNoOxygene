@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class SimonSaysGame : MonoBehaviour
 {
     public GameObject simonSaysPanel;
+    public GameObject wrongButtonPressed;
     public GameObject[] doors;
     public Button[] colorButtons;
     public float delayBetweenFlashes = 0.6f;
@@ -24,6 +25,7 @@ public class SimonSaysGame : MonoBehaviour
     public void StartNewGame()
     {
         sequence.Clear();
+        wrongButtonPressed.SetActive(false);
         AddToSequence();
     }
 
@@ -77,7 +79,8 @@ public class SimonSaysGame : MonoBehaviour
         {
             //On Wrong buttonpress 
             Debug.Log("Wrong button! Restarting...");
-            StartNewGame();
+            wrongButtonPressed.SetActive(true);
+            StartCoroutine(SecondsTimer());
         }
     }
 
@@ -97,5 +100,10 @@ public class SimonSaysGame : MonoBehaviour
         {
             AddToSequence();
         }
+    }
+    IEnumerator SecondsTimer()
+    {
+        yield return new WaitForSeconds(2f);
+        StartNewGame();
     }
 }
