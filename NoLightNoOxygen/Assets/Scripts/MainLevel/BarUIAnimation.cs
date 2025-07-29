@@ -1,16 +1,23 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BarUIAnimation : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public CharakterController player;
+    public Image barImage;
+    public float animationSpeed = 5f;
 
-    // Update is called once per frame
+
     void Update()
     {
-        
+        if (player == null || barImage == null)
+            return;
+
+        // Get target fill amount from PlayerStats
+        float targetFill = player.GetOxygenePercent();
+        barImage.fillAmount = Mathf.Lerp(barImage.fillAmount, targetFill, animationSpeed * Time.deltaTime);
+
+
+
     }
 }

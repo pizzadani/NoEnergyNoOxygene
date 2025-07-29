@@ -13,6 +13,8 @@ public class CharakterController : MonoBehaviour
     public float oxygenDrainRate = 1f;
     private float oxygenTimer = 0f;
 
+    public bool gameEnd = false;
+
     private Rigidbody rb;
     private Vector3 moveInput;
 
@@ -34,6 +36,8 @@ public class CharakterController : MonoBehaviour
         // Rotate to face the mouse
         RotateTowardsMouse();
 
+        GameOver();
+
         //Oxygen Timer
         oxygenTimer += Time.deltaTime;
         if (oxygenTimer >= 1f)
@@ -44,12 +48,22 @@ public class CharakterController : MonoBehaviour
             oxygenTimer = 0f;
             Debug.Log("OXygen:" + oxygen);
         }
+        else
+        {
+
+        }
     }
 
     void FixedUpdate()
     {
         // Move the player based on input
         rb.MovePosition(rb.position + moveInput * moveSpeed * Time.fixedDeltaTime);
+    }
+
+    //Gives Oxygene In Percent (Daniel)
+    public float GetOxygenePercent()
+    {
+        return oxygen / 100f;
     }
 
     void RotateTowardsMouse()
@@ -77,15 +91,24 @@ public class CharakterController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
+            gameEnd = true;
+        }
+    }
+
+    public void GameOver()
+    {
+        if ( gameEnd || oxygen == 0)
+        {
             gameOver.SetActive(true);
             Debug.Log("Enemy Collison" + gameObject.name);
 
             GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
             foreach (GameObject enemy in enemies)
             {
-                enemy.SetActive(false); // Or disable AI scripts if you prefer
+                enemy.SetActive(false);
             }
         }
+
     }
 
     public void RestartGame()
