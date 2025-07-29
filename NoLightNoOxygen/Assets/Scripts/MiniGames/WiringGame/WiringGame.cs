@@ -1,5 +1,7 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace MiniGames
@@ -75,5 +77,11 @@ namespace MiniGames
                 winningMessage.SetActive(true);
             }
         }
+        public void LoadStartMenu()
+        {
+            SceneManager.LoadScene(0);
+        }
+
+
     }
 }
