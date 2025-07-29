@@ -1,10 +1,12 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public class CharakterController : MonoBehaviour
 {
     public float moveSpeed = 5f;
     public Camera cam;
+    public GameObject gameOver;
 
     //Oxygen System
     public int oxygen = 100;
@@ -75,8 +77,20 @@ public class CharakterController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
+            gameOver.SetActive(true);
             Debug.Log("Enemy Collison" + gameObject.name);
+
+            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+            foreach (GameObject enemy in enemies)
+            {
+                enemy.SetActive(false); // Or disable AI scripts if you prefer
+            }
         }
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(1);
     }
 
 }

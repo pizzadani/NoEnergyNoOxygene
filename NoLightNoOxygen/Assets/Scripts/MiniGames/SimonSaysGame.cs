@@ -90,7 +90,7 @@ public class SimonSaysGame : MonoBehaviour
         {
             taskCompletedObject.SetActive(true);
             yield return new WaitForSeconds(1f);
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(3);
 
         }
         else
