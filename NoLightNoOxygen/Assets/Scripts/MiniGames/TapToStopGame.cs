@@ -4,6 +4,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using static TapToStopGame;
 
@@ -139,6 +140,8 @@ public class TapToStopGame : MonoBehaviour
             {
                 resultText.text = "Perfect";
                 resultText.color = Color.green;
+                StartCoroutine(OneSecondTimer());
+                SceneManager.LoadScene(5);
 
             }
         }
@@ -148,6 +151,11 @@ public class TapToStopGame : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         ResetGame();
+    }
+
+    IEnumerator OneSecondTimer()
+    {
+        yield return new WaitForSeconds(1f);
     }
 
     void ResetGame()

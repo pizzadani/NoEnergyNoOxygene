@@ -7217,6 +7217,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MiniGameTrigger
       objectReference: {fileID: 0}
+    - target: {fileID: 7158418621380510602, guid: 3326fa59f0b4aa34582a3a9b437c2097, type: 3}
+      propertyPath: nextSceneIndex
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

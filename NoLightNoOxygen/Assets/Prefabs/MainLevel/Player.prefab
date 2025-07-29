@@ -160,7 +160,7 @@ GameObject:
   - component: {fileID: 5539358316729529777}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -271,6 +271,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   cam: {fileID: 0}
+  gameOver: {fileID: 0}
   oxygen: 100
   oxygenDrainRate: 1
 --- !u!54 &5539358316729529777

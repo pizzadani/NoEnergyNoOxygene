@@ -21,6 +21,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MiniGames/TapToStopScene.unity
     guid: 931cb54dcf804cd49a9172b77773e310
   - enabled: 1
+    path: Assets/Scenes/LevelThree.unity
+    guid: 84fcdd10dc2a1eb4ebed3a6d5b1f0801
+  - enabled: 1
     path: Assets/Scenes/MiniGames/WiringGame.unity
     guid: 6e85e27a60660454b988829f0991fafe
   m_configObjects:

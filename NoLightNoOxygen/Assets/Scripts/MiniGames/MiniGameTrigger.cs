@@ -4,13 +4,18 @@ using UnityEngine.SceneManagement;
 public class MiniGameTrigger : MonoBehaviour
 {
     private bool playerInTrigger = false;
+    public int nextSceneIndex;
 
     void Update()
     {
         if(playerInTrigger && Input.GetKeyDown(KeyCode.E))
         {
-            SceneManager.LoadScene(2);
+            ChangeScene();
 
+        }
+        if (playerInTrigger)
+        {
+            Debug.Log("inTrigger");
         }
         
     }
@@ -26,5 +31,11 @@ public class MiniGameTrigger : MonoBehaviour
         {
             playerInTrigger= false;
         }
+    }
+
+
+    public void ChangeScene()
+    {
+        SceneManager.LoadScene(nextSceneIndex);
     }
 }
