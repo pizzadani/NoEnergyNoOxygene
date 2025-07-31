@@ -245,9 +245,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  moveSpeed: 20
-  fleeSpeed: 40
-  fleeDuration: 0.5
+  moveSpeed: 15
+  fleeSpeed: 30
+  fleeDuration: 1.5
 --- !u!54 &6626126986972716834
 Rigidbody:
   m_ObjectHideFlags: 0
